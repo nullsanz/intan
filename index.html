@@ -2,14 +2,14 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Spesial Buat Intan Tersayang 💖 | Dari Lukman</title>
-  <meta name="description" content="Website kejutan romantis spesial untuk Intan dari Lukman. Penuh cinta, tawa, dan rasa kangen mendalam." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Ada Sesuatu Buat Intan 🌸 | Dari Lukman</title>
+  <meta name="description" content="Kejutan kecil spesial untuk Intan dari Lukman. Buka pas lagi santai yaa!" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@700&family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@700&family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Floating GPU Particle Background -->
+  <!-- Optimized Floating Particle Canvas -->
   <canvas id="heartCanvas"></canvas>
 
   <!-- Background Music Audio Element -->
@@ -50,7 +50,7 @@
     <section id="stage0" class="stage-section active">
       <div class="card-glass welcome-card">
         <div class="badge-sparkle">
-          <span>🔒</span> PRIVATE INVITATION FOR INTAN <span>🔒</span>
+          <span>🔒</span> KHUSUS BUAT INTAN AJA <span>🔒</span>
         </div>
 
         <div class="gift-box-anim" id="giftBoxTrigger">
@@ -61,16 +61,15 @@
 
         <h1 class="stage-title">Ada Sesuatu Buat Kamu... 🌸</h1>
         <p class="stage-subtitle">
-          Sebuah pesan rahasia yang sengaja dibuat khusus untuk <strong>Intan</strong>.<br />
-          <em>(Pastikan volume HP kamu sudah aktif yaa! 🎧)</em>
+          Jujur deg-degan bikinnya wkwk. Buka pas lagi santai yaa, terus aktifin suara HP-nya biar lagunya kedengeran! 🎧✨
         </p>
 
         <div class="welcome-action-box">
           <button id="startJourneyBtn" class="btn-gradient-glow btn-large pulse-btn">
-            <span>BUKA KEJUTAN RAHASIA ✨</span>
+            <span>Buka Dong, Penasaran Kan? 🎁</span>
             <i data-lucide="sparkles"></i>
           </button>
-          <p class="welcome-hint">👆 Sentuh tombol di atas untuk memulai</p>
+          <p class="welcome-hint">👆 Ketuk tombol di atas untuk membuka</p>
         </div>
       </div>
     </section>
@@ -81,13 +80,13 @@
     <section id="stage1" class="stage-section hidden">
       <div class="card-glass intro-card">
         <div class="badge-sparkle">
-          <span>✨</span> TEBAK-TEBAKAN DULU YUK! <span>✨</span>
+          <span>✨</span> TEBAK DULU DONG <span>✨</span>
         </div>
         
         <h1 class="stage-title">Halo Intan Cantik! 🌸</h1>
-        <p class="stage-subtitle">Sebelum buka kejutan kecil ini, coba kamu hitung matematika sederhana ini dulu yaa~</p>
+        <p class="stage-subtitle">Sebelum lanjut, coba tebak matematika sederhana ini dulu yaa~ Gampang kok!</p>
 
-        <div class="chalkboard-box">
+        <div class="chalkboard-box" id="chalkboardBox">
           <div class="chalkboard-pin">📌</div>
           
           <!-- State 1: Math Equation -->
@@ -111,24 +110,29 @@
           </div>
         </div>
 
+        <!-- Input Box with Validation -->
         <div class="interactive-input-box" id="inputContainer">
           <label for="mathInput" class="input-label">Hasilnya berapa hayoo? 👇</label>
           <div class="input-row">
-            <input type="number" id="mathInput" placeholder="Tulis jawaban..." autocomplete="off" />
+            <input type="number" id="mathInput" placeholder="Ketik angka..." autocomplete="off" inputmode="numeric" />
             <button id="submitMathBtn" class="btn-primary pulse-btn">
               <span>HITUNG</span> <i data-lucide="sparkles"></i>
             </button>
           </div>
-          <p class="input-hint">💡 Tips: Berapapun jawaban kamu, hasilnya pasti bikin senyum!</p>
+          <!-- Input Validation Error Message -->
+          <p id="mathErrorMsg" class="input-error-text hidden">
+            ⚠️ Isi angkanya dulu dong ayang, bebas mau nebak berapa aja! 😜
+          </p>
+          <p class="input-hint">💡 Tips: Tebak angka bebas, nanti bakal ada yang aneh!</p>
         </div>
 
         <!-- Button to go to next stage (revealed after trick) -->
         <div id="stage1NextBox" class="next-action-box hidden">
           <p class="sweet-reaction-text" id="reactionText">
-            Sebenernya mau 155 kek, sejuta kek... intinya <strong>akhir-akhir ini aku lagi sering kepikiran dan kangeeeen banget ngobrol sama kamu, Intan!</strong> 🥺👉👈
+            Mau dijawab 155 kek, sejuta kek... intinya belakangan ini gatau kenapa <strong>aku kepikiran kamu mulu, Intan. Kangen ngobrol panjang kayak biasanya hehe</strong> 🥺👉👈
           </p>
           <button id="toStage2Btn" class="btn-gradient-glow btn-large">
-            <span>Buka Surat Rahasia 💌</span>
+            <span>Lanjut Baca Pesan 💌</span>
             <i data-lucide="arrow-right"></i>
           </button>
         </div>
@@ -141,11 +145,11 @@
     <section id="stage2" class="stage-section hidden">
       <div class="card-glass letter-card">
         <div class="badge-sparkle">
-          <span>💌</span> PESAN HANGAT DARI HATI <span>💌</span>
+          <span>💌</span> DARI LUKMAN UNTUK INTAN <span>💌</span>
         </div>
 
-        <h2 class="stage-title">Ada Sedikit Cerita Buat Kamu... ✨</h2>
-        <p class="stage-subtitle">Klik amplop di bawah ini untuk membuka dan membaca isi pesanku yaa~</p>
+        <h2 class="stage-title">Sedikit Cerita Dari Hati... ✨</h2>
+        <p class="stage-subtitle">Ketuk amplop di bawah ini pelan-pelan yaa~</p>
 
         <!-- 3D Interactive Envelope -->
         <div class="envelope-wrapper" id="envelopeWrapper">
@@ -153,16 +157,16 @@
             <div class="envelope-back"></div>
             <div class="letter-sheet" id="letterSheet">
               <div class="letter-header">
-                <span class="letter-to">Dear Intan, 🌸</span>
-                <span class="letter-date">Spesial Untukmu Hari Ini</span>
+                <span class="letter-to">Hai Intan... 🌸</span>
+                <span class="letter-date">Spesial Hari Ini</span>
               </div>
               <div class="letter-body">
                 <p id="typewriterText" class="typewriter-content"></p>
                 <span id="typewriterCursor" class="cursor-blink">|</span>
               </div>
               <div class="letter-footer">
-                <span class="letter-from">Tertanda dengan tulus,</span>
-                <strong class="letter-author">Lukman ✨</strong>
+                <span class="letter-from">Tertanda,</span>
+                <strong class="letter-author">Lukman (yang lagi salting ngetik ini) 😆✨</strong>
               </div>
             </div>
             <div class="envelope-front"></div>
@@ -182,7 +186,7 @@
         <!-- Next to Stage 3 -->
         <div id="stage2NextBox" class="next-action-box hidden">
           <button id="toStage3Btn" class="btn-gradient-glow btn-large">
-            <span>Lihat Foto Favoritku 📸</span>
+            <span>Lihat Foto Manis Kamu 📸</span>
             <i data-lucide="arrow-right"></i>
           </button>
         </div>
@@ -195,11 +199,11 @@
     <section id="stage3" class="stage-section hidden">
       <div class="card-glass polaroid-card">
         <div class="badge-sparkle">
-          <span>👑</span> MY FAVORITE PERSON <span>👑</span>
+          <span>✨</span> FOTO FAVORITKU <span>✨</span>
         </div>
 
-        <h2 class="stage-title">Si Paling Bikin Salting! 💖</h2>
-        <p class="stage-subtitle">Foto favoritku yang selalu sukses bikin hari-hariku jadi lebih berwarna dan cerah~</p>
+        <h2 class="stage-title">Manis Banget, Gak Bohong! 😍</h2>
+        <p class="stage-subtitle">Foto yang sering aku liatin pas lagi kangen hehe~</p>
 
         <!-- 3D Tilt Polaroid Frame -->
         <div class="polaroid-outer" id="polaroidOuter">
@@ -214,9 +218,9 @@
               <div class="photo-overlay-glow"></div>
             </div>
             <div class="polaroid-caption">
-              <p class="caption-handwritten">"Senyummu itu candu terindah di duniaku, Intan."</p>
+              <p class="caption-handwritten">"Senyum kamu tuh bahaya banget, bikin gak fokus seharian."</p>
               <div class="caption-tag">
-                <span class="heart-pulse">❤️</span> Bikin Lukman Kepo & Salting 1000x
+                <span class="heart-pulse">❤️</span> Paling Cantik Pokoknya
               </div>
             </div>
           </div>
@@ -224,14 +228,14 @@
 
         <!-- Interactive Compliment Buttons -->
         <div class="compliment-bar">
-          <button class="pill-chip compliment-chip" data-text="Intan cantik banget hari ini! MasyaAllah ✨">
-            <span>😍 Cantik Parah</span>
+          <button class="pill-chip compliment-chip" data-text="Intan cantik banget asli, MasyaAllah! 😍✨">
+            <span>😍 Cantik Banget Asli</span>
           </button>
-          <button class="pill-chip compliment-chip" data-text="Senyum kamu candu banget, bikin salting brutal! 🥺">
-            <span>🥰 Gemoy Maksimal</span>
+          <button class="pill-chip compliment-chip" data-text="Senyum kamu bikin meleyot parah tau gak! 🥺🥰">
+            <span>🥰 Senyumnya Bikin Meleyot</span>
           </button>
-          <button class="pill-chip compliment-chip" data-text="Semoga bisa makin deket terus sama Intan yaa! ✨❤️">
-            <span>✨ Calon Kesayangan</span>
+          <button class="pill-chip compliment-chip" data-text="Semoga bisa ngobrol dan main bareng terus yaa! 🌸">
+            <span>✨ Jangan Galak-Galak Yaa!</span>
           </button>
         </div>
 
@@ -247,41 +251,40 @@
     </section>
 
     <!-- ==============================================
-         STAGE 4: INTERACTIVE LOVE METER 1000%
+         STAGE 4: INTERACTIVE LOVE / COMFORT METER
          ============================================== -->
     <section id="stage4" class="stage-section hidden">
       <div class="card-glass meter-card">
         <div class="badge-sparkle">
-          <span>📊</span> COMFORT & CRUSH DETECTOR <span>📊</span>
+          <span>📊</span> TINGKAT KE-SALTINGAN <span>📊</span>
         </div>
 
-        <h2 class="stage-title">Seberapa Nyaman Ngobrol Sama Aku? 🥺</h2>
-        <p class="stage-subtitle">Coba geser tingkat ke-saltingan dan kenyamanan kamu dari 0% sampai maksimal!</p>
+        <h2 class="stage-title">Seberapa Asik Ngobrol Sama Aku? 🥺</h2>
+        <p class="stage-subtitle">Tarik garisnya sampe mentok ke kanan yaa, jangan pelit-pelit!</p>
 
         <div class="meter-display-box">
           <div class="meter-heart-indicator" id="meterHeart">
             <span class="meter-heart-icon">💖</span>
           </div>
           <div class="meter-percentage" id="meterPercent">100%</div>
-          <div class="meter-status-text" id="meterStatus">Nyaman Standar! Tapi masa cuma segitu doang? 🤔</div>
+          <div class="meter-status-text" id="meterStatus">Dih, masa cuma segini? Bohong banget wkwk 🥺</div>
         </div>
 
         <!-- Custom Styled Slider -->
         <div class="slider-wrapper">
           <input type="range" min="0" max="1000" value="100" class="custom-range" id="loveSlider" />
-          <div class="slider-fill-bar" id="sliderFillBar"></div>
         </div>
 
         <div class="slider-scale-labels">
           <span>0%</span>
           <span>500%</span>
-          <span>1000% (OVERDOSE!)</span>
+          <span>1000% (MENTOK!)</span>
         </div>
 
         <!-- Button to trigger explosion / continue -->
         <div id="stage4NextBox" class="next-action-box" style="margin-top: 28px;">
           <button id="toStage5Btn" class="btn-gradient-glow btn-large">
-            <span>Pertanyaan Paling Krusial 😈</span>
+            <span>Lanjut ke Pertanyaan Terakhir 😈</span>
             <i data-lucide="arrow-right"></i>
           </button>
         </div>
@@ -289,27 +292,27 @@
     </section>
 
     <!-- ==============================================
-         STAGE 5: THE RUNNING "GAMAU" EVASION BUTTON
+         STAGE 5: RESPONSIVE RUNNING "GAMAU" EVASION ARENA
          ============================================== -->
     <section id="stage5" class="stage-section hidden">
       <div class="card-glass dilemma-card">
         <div class="badge-sparkle">
-          <span>✨</span> KESEPAKATAN KITA BERDUA <span>✨</span>
+          <span>✨</span> PERTANYAAN PALING KRUSIAL <span>✨</span>
         </div>
 
         <div class="dilemma-icon-header">🥺👉👈</div>
         <h2 class="stage-title">Pertanyaan Terakhir Buat Intan:</h2>
         <p class="stage-dilemma-question">
-          "Intan mau gak kita jalanin ini bareng-bareng terus, sering-sering cerita, dan gak boleh tiba-tiba ngilang dari hidup Lukman? 💖"
+          "Intan mau gak kita jalanin ini santai bareng-bareng terus, sering cerita hari-hari kamu, dan janji gak boleh tiba-tiba ngilang? 🥺💖"
         </p>
 
-        <!-- Dynamic Running Button Arena -->
-        <div class="button-arena" id="buttonArena">
+        <!-- Rock-solid Responsive Button Arena -->
+        <div class="button-arena-container" id="buttonArena">
           <button id="yesBtn" class="btn-yes pulse-glow">
             <span>MAU BANGET, JALANIN DULU! 💖</span>
           </button>
 
-          <button id="noBtn" class="btn-no" style="position: relative;">
+          <button id="noBtn" class="btn-no">
             <span>Gamau 😜</span>
           </button>
         </div>
@@ -326,30 +329,30 @@
     <section id="stage6" class="stage-section hidden">
       <div class="card-glass finale-card">
         <div class="badge-sparkle">
-          <span>🌸</span> CRUSH OF THE YEAR CERTIFICATE <span>🌸</span>
+          <span>🌸</span> SERTIFIKAT KHUSUS INTAN <span>🌸</span>
         </div>
 
         <div class="celebration-emojis">🥳 💖 👑 🌸 ✨</div>
-        <h2 class="stage-title">YEEEYYY DEAL RESMI! 🎉</h2>
-        <p class="stage-subtitle">Makasih yaa Intan udah selalu jadi alasan Lukman tersenyum dan semangat setiap hari.</p>
+        <h2 class="stage-title">YEEEYYY DEAL YA! 🎉</h2>
+        <p class="stage-subtitle">Makasih banyak udah luangin waktu buat buka web kecil ini sampai akhir.</p>
 
         <!-- Aesthetic Certificate Box -->
         <div class="certificate-box">
-          <div class="cert-ribbon">🏆 RESMI TERSERTIFIKASI</div>
-          <h3 class="cert-title">SERTIFIKAT CRUSH PALING SPESIAL</h3>
+          <div class="cert-ribbon">🏆 RESMI DITETAPKAN</div>
+          <h3 class="cert-title">SERTIFIKAT TEMEN NGOBROL PALING SPESIAL</h3>
           <p class="cert-desc">Diberikan secara eksklusif kepada:</p>
-          <div class="cert-name">INTAN TERSAYANG ✨</div>
+          <div class="cert-name">INTAN ✨</div>
           <p class="cert-body">
-            Telah resmi dinobatkan sebagai <strong>sosok paling gemas yang sukses bikin Lukman salting dan kepikiran setiap hari</strong>, berhak mendapatkan perhatian 1000x, traktiran jajan, dan ditemani ngobrol setiap saat!
+            Resmi dinobatkan sebagai sosok paling gemas yang sukses bikin Lukman sering senyum sendiri di kamar. Berhak dapet traktiran jajan, temen curhat 24 jam, dan perhatian lebih setiap hari!
           </p>
           <div class="cert-signatures">
             <div class="cert-sig-item">
               <span class="sig-line">Lukman ✨</span>
-              <span class="sig-role">Pengagum Rahasiamu</span>
+              <span class="sig-role">Pengagum Setiamu</span>
             </div>
             <div class="cert-sig-item">
               <span class="sig-line">Intan 🌸</span>
-              <span class="sig-role">Si Paling Bikin Kepo</span>
+              <span class="sig-role">Si Paling Bikin Salting</span>
             </div>
           </div>
         </div>
@@ -358,7 +361,7 @@
         <div class="whatsapp-action-box">
           <a id="waReplyBtn" class="btn-wa-reply" target="_blank" rel="noopener noreferrer">
             <i data-lucide="message-circle" class="wa-icon"></i>
-            <span>BALAS & JAPRI KE WHATSAPP LUKMAN 💬</span>
+            <span>💬 KIRIM BALASAN KE LUKMAN</span>
           </a>
           <p class="wa-hint">Klik tombol di atas untuk kirim respon gemoy kamu langsung ke WA Lukman yaa! 🥰</p>
         </div>
@@ -374,7 +377,7 @@
 
   <!-- Sweet Bottom Floating Watermark -->
   <footer class="app-watermark">
-    <span>Dibuat dengan segenap cinta oleh <strong>Lukman</strong> khusus untuk <strong>Intan</strong> 💖</span>
+    <span>Dibuat dengan segenap rasa oleh <strong>Lukman</strong> khusus untuk <strong>Intan</strong> 🌸</span>
   </footer>
 
   <!-- Main Logic -->
